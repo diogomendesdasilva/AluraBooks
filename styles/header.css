@@ -1,0 +1,172 @@
+.cabecalho__menu-hamburger {
+    width: 32px;
+    height: 32px;
+    background-image: url("../assets/Menu.svg");
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.container__botao:checked ~ .container__label > .cabecalho__menu-hamburger {
+    background-image: url("../assets/Menu\ Aberto.svg");
+}
+
+.container__botao:checked~.container__label {
+    background: var(--cor-azul-degrade);
+}
+
+.cabecalho {
+    background: var(--cor-branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;     /* postition relative por causa da lista */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+    padding: 0.75em;
+}
+
+.lista-menu {
+    display: none;
+    position: absolute;
+    top: 100%;   /* pra ficar abaixo do header (tirou 100% do cabecalho e ficou pra baixo) */
+    width: 60vw;
+}
+
+.container__botao:checked~.lista-menu {
+    display: block;
+}
+
+.lista-menu__titulo, .lista-menu__item {
+    padding: 1em;
+    background: var(--cor-branco);
+}
+
+.lista-menu__titulo {
+    color: var(--cor-laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    text-decoration: none;
+    background: var(--cor-azul-degrade);
+     -webkit-background-clip: text;    /*  funcionar em outros tipos de navegadores */
+    -webkit-text-fill-color: transparent;   /*  funcionar em outros tipos de navegadores */
+    background-clip: text;  /*entende que o background é só aonde tem texo */
+    font-weight: 400;
+    text-transform: uppercase;  /* pra caso precisasse */
+    transform: scale();
+}
+
+.container__botao{
+    display: none;
+}
+
+.container__titulo {
+    display: none;
+}
+
+.opcoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+
+
+@media screen and (min-width: 1024px) {
+    .container__titulo, .container__titulo-negrito {
+        font-family: var(--fonte-logo);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo-negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--cor-preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+    
+    .cabecalho__menu-hamburger {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    #opcoes__menu {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.opcoes__label>.opcoes__item {
+        background: var(--cor-azul-degrade);
+        color: var(--cor-branco);
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--cor-azul-degrade);
+    }
+    
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--cor-branco);
+        text-decoration: none;
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+   .container__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-preto);
+   } 
+
+   .cabecalho {
+    padding: 0 2em;
+   }
+
+    .opcoes {
+    margin-right: auto;
+   }
+
+   .container__texto {
+    display: block;
+   }
+}
